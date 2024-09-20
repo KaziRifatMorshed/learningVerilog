@@ -37,6 +37,6 @@ module t_CT1Q1;
         #10 x = 1'b1; y = 1'b1; z = 1'b1;    
     end
 
-    // initial #150 $finish;
+    initial #150 $finish;
     
 endmodule
