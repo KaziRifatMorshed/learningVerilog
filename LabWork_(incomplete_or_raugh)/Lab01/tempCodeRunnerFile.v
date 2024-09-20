@@ -1,1 +1,0 @@
-CT1_Q1_POS_SOP

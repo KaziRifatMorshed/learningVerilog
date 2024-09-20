@@ -1,0 +1,57 @@
+$date
+	Fri Sep 20 12:47:48 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module t_module_using_wire_supply $end
+$var wire 1 ! y $end
+$var reg 1 " A $end
+$var reg 1 # B $end
+$scope module uut $end
+$var wire 1 " A $end
+$var wire 1 # B $end
+$var wire 1 $ gnd $end
+$var wire 1 % vdd $end
+$var wire 1 & x1 $end
+$var wire 1 ' x2 $end
+$var wire 1 ! y $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+x'
+x&
+1%
+0$
+x#
+x"
+x!
+$end
+#10
+0!
+0'
+0&
+0#
+0"
+#20
+1!
+1'
+1#
+#60
+0'
+1&
+0#
+1"
+#100
+0!
+1'
+1#
+#200

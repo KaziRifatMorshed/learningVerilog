@@ -3,7 +3,7 @@ module half_adder (
     output sum, carry,
     wire sum, carry;
 );
-
+    wire sum, carry; // ???? wire jodi ekhane thake ????
     assign sum = a ^ b;
     assign carry = a & b;
     
