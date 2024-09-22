@@ -1,0 +1,263 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)" "(v12_0-dirty)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/ivl/system.vpi";
+:vpi_module "/usr/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/ivl/va_math.vpi";
+S_0x63426c23d500 .scope module, "t_NOR_NAND_implementation" "t_NOR_NAND_implementation" 2 69;
+ .timescale 0 0;
+v0x63426c268bd0_0 .net "f_NAND", 0 0, L_0x63426c2696f0;  1 drivers
+v0x63426c268c90_0 .net "f_NOR", 0 0, L_0x63426c26a0c0;  1 drivers
+v0x63426c268d30_0 .net "f_ORIGINAL", 0 0, L_0x63426c26a760;  1 drivers
+v0x63426c268dd0_0 .var "w", 0 0;
+v0x63426c268e70_0 .var "x", 0 0;
+v0x63426c268f60_0 .var "y", 0 0;
+v0x63426c269000_0 .var "z", 0 0;
+S_0x63426c23d690 .scope module, "g_NAND_implementation" "NAND_implementation" 2 73, 2 48 0, S_0x63426c23d500;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "w";
+    .port_info 1 /INPUT 1 "x";
+    .port_info 2 /INPUT 1 "y";
+    .port_info 3 /INPUT 1 "z";
+    .port_info 4 /OUTPUT 1 "f_NAND";
+L_0x63426c2690a0 .functor NAND 1, v0x63426c268dd0_0, v0x63426c268dd0_0, C4<1>, C4<1>;
+L_0x63426c2691a0 .functor NAND 1, v0x63426c268e70_0, v0x63426c268e70_0, C4<1>, C4<1>;
+L_0x63426c2692a0 .functor NAND 1, v0x63426c268f60_0, v0x63426c268f60_0, C4<1>, C4<1>;
+L_0x63426c2693d0 .functor NAND 1, v0x63426c269000_0, v0x63426c269000_0, C4<1>, C4<1>;
+L_0x63426c269530 .functor NAND 1, v0x63426c268dd0_0, L_0x63426c2691a0, C4<1>, C4<1>;
+L_0x63426c2695d0 .functor NAND 1, L_0x63426c2692a0, L_0x63426c2693d0, C4<1>, C4<1>;
+L_0x63426c269680 .functor NAND 1, L_0x63426c2690a0, L_0x63426c2693d0, C4<1>, C4<1>;
+L_0x63426c2696f0 .functor NAND 1, L_0x63426c269530, L_0x63426c2695d0, L_0x63426c269680, C4<1>;
+v0x63426c23d870_0 .net "f_NAND", 0 0, L_0x63426c2696f0;  alias, 1 drivers
+v0x63426c266960_0 .net "nw", 0 0, L_0x63426c2690a0;  1 drivers
+v0x63426c266a20_0 .net "nx", 0 0, L_0x63426c2691a0;  1 drivers
+v0x63426c266ac0_0 .net "ny", 0 0, L_0x63426c2692a0;  1 drivers
+v0x63426c266b80_0 .net "nz", 0 0, L_0x63426c2693d0;  1 drivers
+v0x63426c266c90_0 .net "w", 0 0, v0x63426c268dd0_0;  1 drivers
+v0x63426c266d50_0 .net "w1", 0 0, L_0x63426c269530;  1 drivers
+v0x63426c266e10_0 .net "w2", 0 0, L_0x63426c2695d0;  1 drivers
+v0x63426c266ed0_0 .net "w3", 0 0, L_0x63426c269680;  1 drivers
+v0x63426c266f90_0 .net "x", 0 0, v0x63426c268e70_0;  1 drivers
+v0x63426c267050_0 .net "y", 0 0, v0x63426c268f60_0;  1 drivers
+v0x63426c267110_0 .net "z", 0 0, v0x63426c269000_0;  1 drivers
+S_0x63426c267270 .scope module, "g_NOR_implementation" "NOR_implementation" 2 78, 2 26 0, S_0x63426c23d500;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "w";
+    .port_info 1 /INPUT 1 "x";
+    .port_info 2 /INPUT 1 "y";
+    .port_info 3 /INPUT 1 "z";
+    .port_info 4 /OUTPUT 1 "f_NOR";
+L_0x63426c2698f0 .functor NOR 1, v0x63426c268dd0_0, v0x63426c268dd0_0, C4<0>, C4<0>;
+L_0x63426c269960 .functor NOR 1, v0x63426c268e70_0, v0x63426c268e70_0, C4<0>, C4<0>;
+L_0x63426c2699d0 .functor NOR 1, v0x63426c268f60_0, v0x63426c268f60_0, C4<0>, C4<0>;
+L_0x63426c269a40 .functor NOR 1, v0x63426c269000_0, v0x63426c269000_0, C4<0>, C4<0>;
+L_0x63426c269ae0 .functor NOR 1, L_0x63426c2698f0, v0x63426c268e70_0, C4<0>, C4<0>;
+L_0x63426c269ba0 .functor NOR 1, v0x63426c268f60_0, v0x63426c269000_0, C4<0>, C4<0>;
+L_0x63426c269e70 .functor NOR 1, v0x63426c268dd0_0, v0x63426c269000_0, C4<0>, C4<0>;
+L_0x63426c269ee0 .functor NOR 1, L_0x63426c269ae0, L_0x63426c269ba0, L_0x63426c269e70, C4<0>;
+L_0x63426c26a0c0 .functor NOR 1, L_0x63426c269ee0, L_0x63426c269ee0, C4<0>, C4<0>;
+v0x63426c267420_0 .net "f", 0 0, L_0x63426c269ee0;  1 drivers
+v0x63426c2674e0_0 .net "f_NOR", 0 0, L_0x63426c26a0c0;  alias, 1 drivers
+v0x63426c2675a0_0 .net "nw", 0 0, L_0x63426c2698f0;  1 drivers
+v0x63426c267640_0 .net "nx", 0 0, L_0x63426c269960;  1 drivers
+v0x63426c267700_0 .net "ny", 0 0, L_0x63426c2699d0;  1 drivers
+v0x63426c267810_0 .net "nz", 0 0, L_0x63426c269a40;  1 drivers
+v0x63426c2678d0_0 .net "w", 0 0, v0x63426c268dd0_0;  alias, 1 drivers
+v0x63426c267970_0 .net "w1", 0 0, L_0x63426c269ae0;  1 drivers
+v0x63426c267a10_0 .net "w2", 0 0, L_0x63426c269ba0;  1 drivers
+v0x63426c267ad0_0 .net "w3", 0 0, L_0x63426c269e70;  1 drivers
+v0x63426c267b90_0 .net "x", 0 0, v0x63426c268e70_0;  alias, 1 drivers
+v0x63426c267c30_0 .net "y", 0 0, v0x63426c268f60_0;  alias, 1 drivers
+v0x63426c267cd0_0 .net "z", 0 0, v0x63426c269000_0;  alias, 1 drivers
+S_0x63426c267db0 .scope module, "g_original_implimentation" "original_implimentation" 2 83, 2 10 0, S_0x63426c23d500;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "w";
+    .port_info 1 /INPUT 1 "x";
+    .port_info 2 /INPUT 1 "y";
+    .port_info 3 /INPUT 1 "z";
+    .port_info 4 /OUTPUT 1 "f_ORIGINAL";
+L_0x63426c26a1d0 .functor AND 1, v0x63426c268dd0_0, L_0x63426c26a240, C4<1>, C4<1>;
+L_0x63426c26a240 .functor NOT 1, v0x63426c268e70_0, C4<0>, C4<0>, C4<0>;
+L_0x63426c26a300 .functor AND 1, L_0x63426c26a370, L_0x63426c26a460, C4<1>, C4<1>;
+L_0x63426c26a370 .functor NOT 1, v0x63426c268f60_0, C4<0>, C4<0>, C4<0>;
+L_0x63426c26a460 .functor NOT 1, v0x63426c269000_0, C4<0>, C4<0>, C4<0>;
+L_0x63426c26a520 .functor AND 1, L_0x63426c26a590, L_0x63426c26a650, C4<1>, C4<1>;
+L_0x63426c26a590 .functor NOT 1, v0x63426c268dd0_0, C4<0>, C4<0>, C4<0>;
+L_0x63426c26a650 .functor NOT 1, v0x63426c269000_0, C4<0>, C4<0>, C4<0>;
+L_0x63426c26a760 .functor OR 1, L_0x63426c26a1d0, L_0x63426c26a300, L_0x63426c26a520, C4<0>;
+v0x63426c267f70_0 .net *"_ivl_0", 0 0, L_0x63426c26a240;  1 drivers
+v0x63426c268050_0 .net *"_ivl_2", 0 0, L_0x63426c26a370;  1 drivers
+v0x63426c268130_0 .net *"_ivl_4", 0 0, L_0x63426c26a460;  1 drivers
+v0x63426c268220_0 .net *"_ivl_6", 0 0, L_0x63426c26a590;  1 drivers
+v0x63426c268300_0 .net *"_ivl_8", 0 0, L_0x63426c26a650;  1 drivers
+v0x63426c268430_0 .net "a", 0 0, L_0x63426c26a1d0;  1 drivers
+v0x63426c2684f0_0 .net "b", 0 0, L_0x63426c26a300;  1 drivers
+v0x63426c2685b0_0 .net "c", 0 0, L_0x63426c26a520;  1 drivers
+v0x63426c268670_0 .net "f_ORIGINAL", 0 0, L_0x63426c26a760;  alias, 1 drivers
+v0x63426c2687c0_0 .net "w", 0 0, v0x63426c268dd0_0;  alias, 1 drivers
+v0x63426c268860_0 .net "x", 0 0, v0x63426c268e70_0;  alias, 1 drivers
+v0x63426c268950_0 .net "y", 0 0, v0x63426c268f60_0;  alias, 1 drivers
+v0x63426c268a40_0 .net "z", 0 0, v0x63426c269000_0;  alias, 1 drivers
+    .scope S_0x63426c23d500;
+T_0 ;
+    %vpi_call 2 90 "$dumpfile", "230220_NOR_NAND_implementation.vcd" {0 0 0};
+    %vpi_call 2 91 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x63426c23d500 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268dd0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268e70_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268f60_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c269000_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268dd0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268e70_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268f60_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c269000_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268dd0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268e70_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268f60_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c269000_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268dd0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268e70_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268f60_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c269000_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268dd0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268e70_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268f60_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c269000_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268dd0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268e70_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268f60_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c269000_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268dd0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268e70_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268f60_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c269000_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268dd0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268e70_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268f60_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c269000_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268dd0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268e70_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268f60_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c269000_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268dd0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268e70_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268f60_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c269000_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268dd0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268e70_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268f60_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c269000_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268dd0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268e70_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268f60_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c269000_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268dd0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268e70_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268f60_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c269000_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268dd0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268e70_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c268f60_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c269000_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268dd0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268e70_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268f60_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x63426c269000_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268dd0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268e70_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c268f60_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x63426c269000_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_0x63426c23d500;
+T_1 ;
+    %delay 200, 0;
+    %vpi_call 2 112 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "230220_NOR_NAND_implementation.v";

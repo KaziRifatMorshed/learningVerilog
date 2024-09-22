@@ -87,7 +87,7 @@ module t_NOR_NAND_implementation;
 
     initial begin
 
-        $dumpfile("NOR_NAND_implementation.vcd");
+        $dumpfile("230220_NOR_NAND_implementation.vcd");
         $dumpvars(0, t_NOR_NAND_implementation);
 
             w = 1'b0; x = 1'b0; y = 1'b0; z = 1'b0;

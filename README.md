@@ -26,7 +26,7 @@ I am using this command in [CodeRunner](https://marketplace.visualstudio.com/ite
 	"output...": {
 		"prefix": "out",
 		"body": [
-			"output $1,"
+			"output $1"
 		],
 		"description": "output...."
 	},
@@ -71,7 +71,6 @@ I am using this command in [CodeRunner](https://marketplace.visualstudio.com/ite
 			"#10 x = 1'b1; y = 1'b0; z = 1'b1;",
 			"#10 x = 1'b1; y = 1'b1; z = 1'b0;",
 			"#10 x = 1'b1; y = 1'b1; z = 1'b1;",
-			// "initial #200 $finish;"
 		],
 		"description": "3 possible input combinations"
 	},
@@ -94,9 +93,8 @@ I am using this command in [CodeRunner](https://marketplace.visualstudio.com/ite
 			"#10 A = 1'b1; B = 1'b1; C = 1'b0; D = 1'b1;",
 			"#10 A = 1'b1; B = 1'b1; C = 1'b1; D = 1'b0;",
 			"#10 A = 1'b1; B = 1'b1; C = 1'b1; D = 1'b1;",
-			// "initial #200 $finish;"
 		],
-		"description": "x, y, z"
+		"description": "A B C D input combinations"
 	}
 
 ```
