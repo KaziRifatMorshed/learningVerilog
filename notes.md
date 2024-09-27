@@ -33,4 +33,5 @@
 
 ***
 
-...
+wire - output purpose\
+reg - input purpose (as we will test all possible inputs)

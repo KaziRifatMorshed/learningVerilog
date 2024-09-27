@@ -1,0 +1,69 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)" "(v12_0-dirty)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/ivl/system.vpi";
+:vpi_module "/usr/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/ivl/va_math.vpi";
+S_0x55baff052d20 .scope module, "t_BinaryAdder" "t_BinaryAdder" 2 11;
+ .timescale 0 0;
+v0x55baff066b60_0 .var "A", 3 0;
+v0x55baff066c40_0 .var "B", 3 0;
+v0x55baff066d10_0 .var "C_in", 0 0;
+v0x55baff066e10_0 .net "C_out", 0 0, L_0x55baff066f80;  1 drivers
+v0x55baff066ee0_0 .net "S", 3 0, L_0x55baff067070;  1 drivers
+S_0x55baff052eb0 .scope module, "BinaryAdder" "BinaryAdder" 2 19, 2 1 0, S_0x55baff052d20;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 4 "Sum";
+    .port_info 1 /OUTPUT 1 "C_out";
+    .port_info 2 /INPUT 4 "A";
+    .port_info 3 /INPUT 4 "B";
+    .port_info 4 /INPUT 1 "C_in";
+v0x55baff019450_0 .net "A", 3 0, v0x55baff066b60_0;  1 drivers
+v0x55baff066020_0 .net "B", 3 0, v0x55baff066c40_0;  1 drivers
+v0x55baff066100_0 .net "C_in", 0 0, v0x55baff066d10_0;  1 drivers
+v0x55baff0661d0_0 .net "C_out", 0 0, L_0x55baff066f80;  alias, 1 drivers
+v0x55baff066290_0 .net "Sum", 3 0, L_0x55baff067070;  alias, 1 drivers
+L_0x7912bf8a6060 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x55baff0663c0_0 .net *"_ivl_10", 0 0, L_0x7912bf8a6060;  1 drivers
+v0x55baff0664a0_0 .net *"_ivl_11", 4 0, L_0x55baff067460;  1 drivers
+v0x55baff066580_0 .net *"_ivl_13", 4 0, L_0x55baff0675a0;  1 drivers
+L_0x7912bf8a60a8 .functor BUFT 1, C4<0000>, C4<0>, C4<0>, C4<0>;
+v0x55baff066660_0 .net *"_ivl_16", 3 0, L_0x7912bf8a60a8;  1 drivers
+v0x55baff066740_0 .net *"_ivl_17", 4 0, L_0x55baff067720;  1 drivers
+v0x55baff066820_0 .net *"_ivl_3", 4 0, L_0x55baff0671b0;  1 drivers
+L_0x7912bf8a6018 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x55baff066900_0 .net *"_ivl_6", 0 0, L_0x7912bf8a6018;  1 drivers
+v0x55baff0669e0_0 .net *"_ivl_7", 4 0, L_0x55baff0672f0;  1 drivers
+L_0x55baff066f80 .part L_0x55baff067720, 4, 1;
+L_0x55baff067070 .part L_0x55baff067720, 0, 4;
+L_0x55baff0671b0 .concat [ 4 1 0 0], v0x55baff066b60_0, L_0x7912bf8a6018;
+L_0x55baff0672f0 .concat [ 4 1 0 0], v0x55baff066c40_0, L_0x7912bf8a6060;
+L_0x55baff067460 .arith/sum 5, L_0x55baff0671b0, L_0x55baff0672f0;
+L_0x55baff0675a0 .concat [ 1 4 0 0], v0x55baff066d10_0, L_0x7912bf8a60a8;
+L_0x55baff067720 .arith/sum 5, L_0x55baff067460, L_0x55baff0675a0;
+    .scope S_0x55baff052d20;
+T_0 ;
+    %vpi_call 2 22 "$dumpfile", "BinaryAdder.vcd" {0 0 0};
+    %vpi_call 2 23 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x55baff052d20 {0 0 0};
+    %pushi/vec4 11, 0, 4;
+    %store/vec4 v0x55baff066b60_0, 0, 4;
+    %pushi/vec4 7, 0, 4;
+    %store/vec4 v0x55baff066c40_0, 0, 4;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55baff066d10_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_0x55baff052d20;
+T_1 ;
+    %delay 250, 0;
+    %vpi_call 2 26 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "BinaryAdder.v";
