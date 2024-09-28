@@ -44,7 +44,8 @@ module Adder_Subtractor_Circuit_Unit (
     wire xor_to_FA;
 
     xor g1 (xor_to_FA, B, CTR);
-    FullAdder g2 (Sum, Carry, A, xor_to_FA, CTR);
+    // FullAdder g2 (Sum, Carry, A, xor_to_FA, CTR); // last e CTR hobe na
+    FullAdder g2 (Sum, Carry, A, xor_to_FA, prev_Carry);
     
 endmodule
 
@@ -79,7 +80,7 @@ module t_three_bit_Adder_Subtractor_Circuit;
         $dumpfile("three_bit_Adder_Subtractor_Circuit.vcd");
         $dumpvars(0, t_three_bit_Adder_Subtractor_Circuit);
 
-            A = 3'b000; B = 3'b000; CTR = 1'b0;
+            // A = 3'b000; B = 3'b000; CTR = 1'b0;
         #20 A = 3'b101; B = 3'b011; CTR = 1'b0;
         #20 A = 3'b101; B = 3'b011; CTR = 1'b1;
         #20 A = 3'b011; B = 3'b101; CTR = 1'b1;
@@ -90,7 +91,12 @@ module t_three_bit_Adder_Subtractor_Circuit;
         #20 A = 3'b101; B = 3'b101; CTR = 1'b1;
         
     end
+	initial #220 $finish;
 
-    // initial $monitor 
+
+    initial
+    $monitor("At time %t: A = %b, B = %b, CTR = %b -> SUM = %b, Carry = %b, Overflow = %b",
+             $time, A, B, CTR, S, C, V);
+ 
     
 endmodule

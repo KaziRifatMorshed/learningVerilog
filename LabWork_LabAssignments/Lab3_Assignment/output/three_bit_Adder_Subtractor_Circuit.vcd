@@ -1,5 +1,5 @@
 $date
-	Sat Sep 28 10:56:04 2024
+	Sat Sep 28 11:32:57 2024
 $end
 $version
 	Icarus Verilog
@@ -66,7 +66,7 @@ $var wire 1 * Carry $end
 $scope module g2 $end
 $var wire 1 4 A $end
 $var wire 1 6 B $end
-$var wire 1 & C_in $end
+$var wire 1 + C_in $end
 $var wire 1 * C_out $end
 $var wire 1 7 S $end
 $var wire 1 8 P $end
@@ -80,7 +80,7 @@ $var wire 1 8 S $end
 $upscope $end
 $scope module hf2 $end
 $var wire 1 8 A $end
-$var wire 1 & B $end
+$var wire 1 + B $end
 $var wire 1 9 C $end
 $var wire 1 7 S $end
 $upscope $end
@@ -97,7 +97,7 @@ $var wire 1 ) Carry $end
 $scope module g2 $end
 $var wire 1 ; A $end
 $var wire 1 = B $end
-$var wire 1 & C_in $end
+$var wire 1 * C_in $end
 $var wire 1 ) C_out $end
 $var wire 1 > S $end
 $var wire 1 ? P $end
@@ -111,7 +111,7 @@ $var wire 1 ? S $end
 $upscope $end
 $scope module hf2 $end
 $var wire 1 ? A $end
-$var wire 1 & B $end
+$var wire 1 * B $end
 $var wire 1 @ C $end
 $var wire 1 > S $end
 $upscope $end
@@ -160,14 +160,20 @@ b0 "
 0!
 $end
 #20
+1#
+1)
+1@
+0!
+1*
+19
 1+
-17
+07
 13
 18
 00
-b110 "
-b110 ,
-1>
+b0 "
+b0 ,
+0>
 1/
 16
 01
@@ -182,26 +188,24 @@ b101 $
 b101 '
 #40
 1!
+0*
 12
 1+
+17
+09
+0>
+0@
 11
 03
 08
-0*
 0?
 1A
-1#
-1)
 0/
+b10 "
+b10 ,
 00
 06
-17
-09
 1=
-b110 "
-b110 ,
-1>
-0@
 1&
 #60
 1*
@@ -212,7 +216,6 @@ b110 ,
 b110 "
 b110 ,
 1>
-0@
 0#
 0)
 16
@@ -230,18 +233,20 @@ b11 $
 b11 '
 #80
 0!
+0#
+0)
 0*
+1>
+0@
 0+
 18
 0:
 1?
+b111 "
+b111 ,
 10
 02
 06
-17
-b111 "
-b111 ,
-1>
 0.
 0<
 1;
@@ -251,38 +256,35 @@ b0 (
 b111 $
 b111 '
 #100
+1*
+1>
+1#
+1)
 01
 13
 1+
 08
 1:
-1*
 0?
 1A
-1#
-1)
 1/
+b111 "
+b111 ,
 10
 02
 16
-17
-09
 1=
-b111 "
-b111 ,
-1>
-0@
 1&
 #120
 10
 02
 0+
-17
+07
 09
 0*
-b111 "
-b111 ,
-1>
+b1 "
+b1 ,
+0>
 0@
 0#
 0)
@@ -306,6 +308,7 @@ b111 (
 b0 $
 b0 '
 #140
+17
 1!
 1+
 1#
@@ -313,12 +316,10 @@ b0 '
 13
 1A
 1/
+b10 "
+b10 ,
 00
-07
 1=
-b0 "
-b0 ,
-0>
 05
 1-
 1;
@@ -328,12 +329,14 @@ b101 (
 b101 $
 b101 '
 #160
+1@
 1*
 0!
 12
 1+
+07
 19
-1@
+0>
 1#
 1)
 11
@@ -342,11 +345,10 @@ b101 '
 1?
 0A
 0/
-00
-16
-07
-0=
 b0 "
 b0 ,
-0>
+00
+16
+0=
 1&
+#220

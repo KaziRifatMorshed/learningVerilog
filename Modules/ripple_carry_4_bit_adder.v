@@ -38,7 +38,7 @@ endmodule
 
 
 module t_ripple_carry_4_bit_adder;
-	wire C1,C2,C3,C4;
+	wire C4;
 	wire [3:0] S;
 	reg [3:0] A, B;
 	reg C0;
