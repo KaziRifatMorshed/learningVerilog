@@ -39,12 +39,11 @@ endmodule
 
 module Adder_Subtractor_Circuit_Unit (
     output Sum, Carry,
-    input A, B, prev_Carry, CTR // total 4 ta input
+    input A, B, prev_Carry, CTR // total 4 inputs
 );
     wire xor_to_FA;
 
     xor g1 (xor_to_FA, B, CTR);
-    // FullAdder g2 (Sum, Carry, A, xor_to_FA, CTR); // last e CTR hobe na
     FullAdder g2 (Sum, Carry, A, xor_to_FA, prev_Carry);
     
 endmodule
@@ -62,7 +61,7 @@ module three_bit_Adder_Subtractor_Circuit (
     Adder_Subtractor_Circuit_Unit u1 (SUM[1], c2, A[1], B[1], c1 , CTR );
     Adder_Subtractor_Circuit_Unit u2 (SUM[2], c3, A[2], B[2], c2 , CTR );
     
-    xor jani_na_ei_gate_er_kaj_ki (V, c3, c2); // ei gate ki korche ?????
+    xor jani_na_ei_gate_er_kaj_ki (V, c3, c2); 
     assign C = c3; // formality
 endmodule
 
@@ -80,8 +79,7 @@ module t_three_bit_Adder_Subtractor_Circuit;
         $dumpfile("three_bit_Adder_Subtractor_Circuit.vcd");
         $dumpvars(0, t_three_bit_Adder_Subtractor_Circuit);
 
-            // A = 3'b000; B = 3'b000; CTR = 1'b0;
-        #20 A = 3'b101; B = 3'b011; CTR = 1'b0;
+            A = 3'b101; B = 3'b011; CTR = 1'b0;
         #20 A = 3'b101; B = 3'b011; CTR = 1'b1;
         #20 A = 3'b011; B = 3'b101; CTR = 1'b1;
         #20 A = 3'b111; B = 3'b000; CTR = 1'b0;
@@ -91,8 +89,7 @@ module t_three_bit_Adder_Subtractor_Circuit;
         #20 A = 3'b101; B = 3'b101; CTR = 1'b1;
         
     end
-	initial #220 $finish;
-
+	initial #250 $finish;
 
     initial
     $monitor("At time %t: A = %b, B = %b, CTR = %b -> SUM = %b, Carry = %b, Overflow = %b",
@@ -100,3 +97,21 @@ module t_three_bit_Adder_Subtractor_Circuit;
  
     
 endmodule
+
+/*
+OUTPUT:
+
+VCD info: dumpfile three_bit_Adder_Subtractor_Circuit.vcd opened for output.
+
+At time   0: A = 101, B = 011, CTR = 0 -> SUM = 000, Carry = 1, Overflow = 0
+At time  20: A = 101, B = 011, CTR = 1 -> SUM = 010, Carry = 1, Overflow = 1
+At time  40: A = 011, B = 101, CTR = 1 -> SUM = 110, Carry = 0, Overflow = 1
+At time  60: A = 111, B = 000, CTR = 0 -> SUM = 111, Carry = 0, Overflow = 0
+At time  80: A = 111, B = 000, CTR = 1 -> SUM = 111, Carry = 1, Overflow = 0
+At time 100: A = 000, B = 111, CTR = 1 -> SUM = 001, Carry = 0, Overflow = 0
+At time 120: A = 101, B = 101, CTR = 0 -> SUM = 010, Carry = 1, Overflow = 1
+At time 140: A = 101, B = 101, CTR = 1 -> SUM = 000, Carry = 1, Overflow = 0
+
+three_bit_Adder_Subtractor_Circuit.v:92: $finish called at 250 (1s)
+
+*/
