@@ -4,7 +4,7 @@ module HalfAdder (
 );
     xor (S, A, B);
     and (C, A, B);
-endmodule
+endmodule // done
 
 
 
@@ -12,11 +12,11 @@ module FullAdder (
     output S, C_out,
     input A, B, C_in
 );
-    wire P, G; // intermediate carriers
-    HalfAdder hf1 (P, G, A, B); // careful
-    HalfAdder hf2 (S, C_out, P, C_in); // careful
-    or g1 (C_out, );
-endmodule
+    wire P, G1, G2; // intermediate carriers
+    HalfAdder hf1 (P, G1, A, B); // careful
+    HalfAdder hf2 (S, G2, P, C_in); // careful
+    or g1 (C_out, G1, G2); // more careful
+endmodule // working
 
 
 
@@ -47,8 +47,19 @@ module t_ripple_carry_4_bit_adder;
 	begin
 		$dumpfile("ripple_carry_4_bit_adder.vcd");
 		$dumpvars(0,t_ripple_carry_4_bit_adder);
-		A = 4'b0001; B = 4'b0111; C0 =1'b0;
+
+		    A = 4'b0001; B = 4'b0111; C0 =1'b0;
 		#20 A = 4'b0001; B = 4'b0001; C0 =1'b0;
+        #20 A = 4'b0101; B = 4'b011; C0 = 1'b0;
+        #20 A = 4'b0101; B = 4'b011; C0 = 1'b0;
+        #20 A = 4'b0011; B = 4'b101; C0 = 1'b0;
+        #20 A = 4'b0111; B = 4'b000; C0 = 1'b0;
+        #20 A = 4'b0111; B = 4'b000; C0 = 1'b0;
+        #20 A = 4'b0000; B = 4'b111; C0 = 1'b0;
+        #20 A = 4'b0101; B = 4'b101; C0 = 1'b0;
+        #20 A = 4'b0101; B = 4'b101; C0 = 1'b0;
+
+
 	end
 	initial #250 $finish;
-endmodule
+endmodule // DONE
