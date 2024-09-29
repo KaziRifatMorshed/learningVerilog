@@ -92,8 +92,8 @@ module t_three_bit_Adder_Subtractor_Circuit;
 	initial #250 $finish;
 
     initial
-    $monitor("At time %t: A = %b, B = %b, CTR = %b -> SUM = %b, Carry = %b, Overflow = %b",
-             $time, A, B, CTR, S, C, V);
+    $monitor("At time %t: A = %b (%d), B = %b (%d), CTR = %b -> REUSLT = %b , Carry = %b, Overflow = %b",
+             $time, A, A, B, B, CTR, S, S, C, V);
  
     
 endmodule
@@ -103,14 +103,14 @@ OUTPUT:
 
 VCD info: dumpfile three_bit_Adder_Subtractor_Circuit.vcd opened for output.
 
-At time   0: A = 101, B = 011, CTR = 0 -> SUM = 000, Carry = 1, Overflow = 0
-At time  20: A = 101, B = 011, CTR = 1 -> SUM = 010, Carry = 1, Overflow = 1
-At time  40: A = 011, B = 101, CTR = 1 -> SUM = 110, Carry = 0, Overflow = 1
-At time  60: A = 111, B = 000, CTR = 0 -> SUM = 111, Carry = 0, Overflow = 0
-At time  80: A = 111, B = 000, CTR = 1 -> SUM = 111, Carry = 1, Overflow = 0
-At time 100: A = 000, B = 111, CTR = 1 -> SUM = 001, Carry = 0, Overflow = 0
-At time 120: A = 101, B = 101, CTR = 0 -> SUM = 010, Carry = 1, Overflow = 1
-At time 140: A = 101, B = 101, CTR = 1 -> SUM = 000, Carry = 1, Overflow = 0
+At time   0: A = 101 (5), B = 011 (3), CTR = 0 -> REUSLT = 000 (0), Carry = 1, Overflow = 0
+At time  20: A = 101 (5), B = 011 (3), CTR = 1 -> REUSLT = 010 (2), Carry = 1, Overflow = 1
+At time  40: A = 011 (3), B = 101 (5), CTR = 1 -> REUSLT = 110 (6), Carry = 0, Overflow = 1 ------
+At time  60: A = 111 (7), B = 000 (0), CTR = 0 -> REUSLT = 111 (7), Carry = 0, Overflow = 0
+At time  80: A = 111 (7), B = 000 (0), CTR = 1 -> REUSLT = 111 (7), Carry = 1, Overflow = 0
+At time 100: A = 000 (0), B = 111 (7), CTR = 1 -> REUSLT = 001 (1), Carry = 0, Overflow = 0
+At time 120: A = 101 (5), B = 101 (5), CTR = 0 -> REUSLT = 010 (2), Carry = 1, Overflow = 1
+At time 140: A = 101 (5), B = 101 (5), CTR = 1 -> REUSLT = 000 (0), Carry = 1, Overflow = 0
 
 three_bit_Adder_Subtractor_Circuit.v:92: $finish called at 250 (1s)
 
