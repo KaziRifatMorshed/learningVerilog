@@ -15,6 +15,20 @@ I am using this command in [CodeRunner](https://marketplace.visualstudio.com/ite
 `~/.config/Code - OSS/User/profiles/-5d9ac861/snippets/verilog.json`
 
 ```json
+{
+	// Place your snippets for verilog here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
 	"assign...": {
 		"prefix": "ass",
 		"body": [
@@ -44,13 +58,13 @@ I am using this command in [CodeRunner](https://marketplace.visualstudio.com/ite
 		],
 		"description": "x, y, z"
 	},
-		"A, B, C, D": {
+	"A, B, C, D": {
 		"prefix": "A",
 		"body": [
 			"A, B, C, D"
 		],
 		"description": "A, B, C, D"
-	}
+	},
 	"$dump": {
 		"prefix": "dump",
 		"body": [
@@ -60,7 +74,7 @@ I am using this command in [CodeRunner](https://marketplace.visualstudio.com/ite
 		],
 		"description": "x, y, z"
 	},
-		"3input": {
+	"3input": {
 		"prefix": "3input_x_y_z",
 		"body": [
 			"    x = 1'b0; y = 1'b0; z = 1'b0;",
@@ -70,7 +84,7 @@ I am using this command in [CodeRunner](https://marketplace.visualstudio.com/ite
 			"#10 x = 1'b1; y = 1'b0; z = 1'b0;",
 			"#10 x = 1'b1; y = 1'b0; z = 1'b1;",
 			"#10 x = 1'b1; y = 1'b1; z = 1'b0;",
-			"#10 x = 1'b1; y = 1'b1; z = 1'b1;",
+			"#10 x = 1'b1; y = 1'b1; z = 1'b1;"
 		],
 		"description": "3 possible input combinations"
 	},
@@ -92,9 +106,16 @@ I am using this command in [CodeRunner](https://marketplace.visualstudio.com/ite
 			"#10 A = 1'b1; B = 1'b1; C = 1'b0; D = 1'b0;",
 			"#10 A = 1'b1; B = 1'b1; C = 1'b0; D = 1'b1;",
 			"#10 A = 1'b1; B = 1'b1; C = 1'b1; D = 1'b0;",
-			"#10 A = 1'b1; B = 1'b1; C = 1'b1; D = 1'b1;",
+			"#10 A = 1'b1; B = 1'b1; C = 1'b1; D = 1'b1;"
 		],
-		"description": "A B C D input combinations"
+		"description": "x, y, z"
 	}
-
+	// "x, y, z": {
+	// 	"prefix": "xyz",
+	// 	"body": [
+	// 		"xyz"
+	// 	],
+	// 	"description": "xyz"
+	// }
+}
 ```
