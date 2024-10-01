@@ -109,7 +109,14 @@ I am using this command in [CodeRunner](https://marketplace.visualstudio.com/ite
 			"#10 A = 1'b1; B = 1'b1; C = 1'b1; D = 1'b1;"
 		],
 		"description": "x, y, z"
-	}
+	},
+		"`timescale": {
+		"prefix": "time",
+		"body": [
+			"`timescale 1ns/1ps"
+		],
+		"description": "`timescale 1ns/1ps"
+	},
 	// "x, y, z": {
 	// 	"prefix": "xyz",
 	// 	"body": [
