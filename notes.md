@@ -110,3 +110,14 @@ primitive UDP (D, a, b, c);
 
 endprimitive
 ```
+
+# Output
+```verilog
+	initial
+	begin 
+		$dumpfile("binary_adder.vcd");
+		$dumpvars(0,t_binary_adder);
+		A = 4'b1001; B = 4'b0111; C_in =1'b1;
+	end
+	initial #250 $finish;
+  ```
