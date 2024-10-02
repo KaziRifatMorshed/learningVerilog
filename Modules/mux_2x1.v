@@ -49,11 +49,23 @@ module top;
     reg d0, d1, s;
 
     mux_2x1 mux_2x1(
-        .F(out),          // Output
+        .F(out),
         .I({d1, d0}),     // ----------------------- REMEMBER SYNTAX
-        .S(s)             // Select input
+        .S(s)
     );
 
+    initial begin
+            d0 = 1'b0; d1 = 1'b0; s = 1'b0;
+        #10 d0 = 1'b0; d1 = 1'b0; s = 1'b1;
+        #10 d0 = 1'b0; d1 = 1'b1; s = 1'b0;
+        #10 d0 = 1'b0; d1 = 1'b1; s = 1'b1;
+        #10 d0 = 1'b1; d1 = 1'b0; s = 1'b0;
+        #10 d0 = 1'b1; d1 = 1'b0; s = 1'b1;
+        #10 d0 = 1'b1; d1 = 1'b1; s = 1'b0;
+        #10 d0 = 1'b1; d1 = 1'b1; s = 1'b1;
+    end
+
+/*
     initial
     begin
         d0 = 1'b0;
@@ -70,9 +82,20 @@ module top;
 
     // Toggle s (select input) every 10 time units
     always #10 s = ~s;
-
+*/
     // Monitor the signals and display changes
     always @(d0 or d1 or s)
         $monitor("At time = %t, d0 = %b, d1 = %b, s = %b, Output = %b", $time, d0, d1, s, out);
 
 endmodule; // DONE
+
+/*
+At time =  0, d0 = 0, d1 = 0, s = 0, Output = 0
+At time = 10, d0 = 0, d1 = 0, s = 1, Output = 0
+At time = 20, d0 = 0, d1 = 1, s = 0, Output = 0
+At time = 30, d0 = 0, d1 = 1, s = 1, Output = 1
+At time = 40, d0 = 1, d1 = 0, s = 0, Output = 1
+At time = 50, d0 = 1, d1 = 0, s = 1, Output = 0
+At time = 60, d0 = 1, d1 = 1, s = 0, Output = 1
+At time = 70, d0 = 1, d1 = 1, s = 1, Output = 1
+*/

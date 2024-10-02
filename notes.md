@@ -33,6 +33,26 @@
 
 ***
 
+The statement `always @ (a or b or c or d or s0, s1)` is used in Verilog to define the sensitivity list of an always block. The sensitivity list tells the Verilog simulator when to execute the logic inside the always block, based on changes to the listed signals.
+
+Components:
+always @ ( ... ): This specifies that the block will be triggered (executed) when any of the signals in the parentheses change.
+Signals inside the parentheses: The list a, b, c, d, s0, s1 are the signals that the block is sensitive to. When any of these signals undergo a change, the logic inside the always block is evaluated.
+
+Detailed Explanation:
+a or b or c or d or s0, s1:
+This list contains signals that could be inputs or intermediate signals in the design.
+The block will be executed whenever any one of the signals a, b, c, d, s0, or s1 changes value.
+Notice the mistake in the sensitivity list: s0, s1 should be written as s0 or s1. The comma in the sensitivity list is incorrect. It should use or between signals.
+
+***
+
+- custom module use korle oi module er instance name dibo.
+- `assign {C_out, Sum} = A + B + C_in;`
+
+
+***
+
 wire - output purpose\
 reg - input purpose (as we will test all possible inputs)
 
@@ -46,9 +66,47 @@ reg - input purpose (as we will test all possible inputs)
     );
 ```
 
+# Monitor
+
 ```verilog
     initial $monitor ("a = ", a, ", b = ", b, ", carry = ", c, " sum = ", s);
 
     always @(d0 or d1 or s) // mux_2x1
         $monitor("At time = %t, d0 = %b, d1 = %b, s = %b, Output = %b", $time, d0, d1, s, out);
+```
+
+# MUX_4x1
+
+```verilog
+always @ (a or b or c or d or s0, s1)
+begin
+    case (s0 | s1)
+        2'b00 : out <= a;
+        2'b01 : out <= b;
+        2'b10 : out <= c;
+        2'b11 : out <= d;
+    endcase
+end
+```
+
+# Primitive 
+emne chara kaj kore na 
+```verilog
+primitive UDP (D, a, b, c);
+    output D;
+    input a, b, c;
+
+    table
+        // inputs : output;
+        0 0 0 : 1;
+        0 0 1 : 0;
+        0 1 0 : 1;
+        0 1 1 : 0;
+        1 0 0 : 1;
+        1 0 1 : 0;
+        1 1 0 : 1;
+        1 1 1 : 1;
+    endtable
+
+endprimitive
 ```
