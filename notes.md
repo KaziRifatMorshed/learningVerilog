@@ -35,3 +35,20 @@
 
 wire - output purpose\
 reg - input purpose (as we will test all possible inputs)
+
+***
+
+```verilog
+    mux_2x1 mux_2x1(
+        .F(out),
+        .I({d1, d0}),
+        .S(s)
+    );
+```
+
+```verilog
+    initial $monitor ("a = ", a, ", b = ", b, ", carry = ", c, " sum = ", s);
+
+    always @(d0 or d1 or s) // mux_2x1
+        $monitor("At time = %t, d0 = %b, d1 = %b, s = %b, Output = %b", $time, d0, d1, s, out);
+```
