@@ -33,7 +33,7 @@
 
 ***
 
-The statement `always @ (a or b or c or d or s0, s1)` is used in Verilog to define the sensitivity list of an always block. The sensitivity list tells the Verilog simulator when to execute the logic inside the always block, based on changes to the listed signals.
+The statement `always @ (a or b or c or d or s0 or s1)` is used in Verilog to define the sensitivity list of an always block. The sensitivity list tells the Verilog simulator when to execute the logic inside the always block, based on changes to the listed signals.
 
 Components:
 always @ ( ... ): This specifies that the block will be triggered (executed) when any of the signals in the parentheses change.
@@ -74,6 +74,10 @@ reg - input purpose (as we will test all possible inputs)
     always @(d0 or d1 or s) // mux_2x1
         $monitor("At time = %t, d0 = %b, d1 = %b, s = %b, Output = %b", $time, d0, d1, s, out);
 ```
+Key Differences:\
+Initial $monitor: Automatically tracks changes and prints values whenever they change, without needing an always @ block. It's simpler and more intuitive.\
+Always @ $monitor: Redundant and less common, because $monitor already triggers on changes, making the always sensitivity list unnecessary.\
+In summary, using $monitor in an initial block is the typical and recommended approach, while wrapping it in always @ is redundant and not necessary.\
 
 # MUX_4x1
 
