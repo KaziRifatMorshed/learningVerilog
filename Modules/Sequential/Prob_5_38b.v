@@ -35,24 +35,19 @@ module Prob_5_38b_structural (
     output reg [1:0] state
 );
 
-    // Define the two bits A and B of the state
     wire A, B;
     assign A = state[1];
     assign B = state[0];
 
-    // Next state wires for DA and DB
     wire DA, DB;
 
-    // DA = A' * x + A * x'
     assign DA = (~A & x_in) | (A & ~x_in);
 
-    // DB = A * B + B * x'
     assign DB = (A & B) | (B & ~x_in);
 
-    // Sequential logic to update state based on DA and DB
     always @(posedge clock or negedge reset_b) begin
-        if (!reset_b) state <= 2'b00;  // Reset to state s0
-        else state <= {DA, DB};  // Update state with DA and DB
+        if (!reset_b) state <= 2'b00; 
+        else state <= {DA, DB};  
     end
 
 endmodule
