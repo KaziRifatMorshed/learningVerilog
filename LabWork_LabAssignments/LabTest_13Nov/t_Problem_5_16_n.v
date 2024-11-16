@@ -31,18 +31,10 @@ module Problem_5_16_n (
     output A, B,
 	input x_in, clock, reset
 );
-    // reg [1:0] state, next_state; // -------------- USELESS
-
 	wire FA, nA, FB, nB; // FIX HERE
 	// reg A, nA, B, nB;
 	assign FA = ~x_in & !(A ^ B);
 	assign FB = ~x_in & (A ^ B);
-
-    // always @(posedge clock or negedge reset) begin
-    //     if (reset == 1'b1) state <= state; 
-    //     else state <= {FA, FB};  
-    // end
-	// always @(x_in, A, B, FA, FB);
 	
 	TFF_with_DFF T1 (A, nA, FA, clock, reset);
 	TFF_with_DFF T2 (B, nB, FB, clock, reset);
