@@ -1,5 +1,5 @@
 $date
-	Wed Nov 13 16:33:27 2024
+	Mon Nov 18 23:23:04 2024
 $end
 $version
 	Icarus Verilog
@@ -20,39 +20,38 @@ $var wire 1 ( FB $end
 $var wire 1 $ clock $end
 $var wire 1 % reset $end
 $var wire 1 & x_in $end
-$var wire 1 ) state $end
-$var wire 1 * nB $end
-$var wire 1 + nA $end
+$var wire 1 ) nB $end
+$var wire 1 * nA $end
 $var wire 1 " B $end
 $var wire 1 # A $end
 $scope module T1 $end
 $var wire 1 $ Clk $end
 $var wire 1 ' T $end
-$var wire 1 , _T $end
+$var wire 1 + _T $end
 $var wire 1 % rst $end
-$var wire 1 + nQ $end
+$var wire 1 * nQ $end
 $var wire 1 # Q $end
 $scope module dff $end
 $var wire 1 $ Clk $end
-$var wire 1 , D $end
+$var wire 1 + D $end
 $var wire 1 % rst $end
 $var reg 1 # Q $end
-$var reg 1 + nQ $end
+$var reg 1 * nQ $end
 $upscope $end
 $upscope $end
 $scope module T2 $end
 $var wire 1 $ Clk $end
 $var wire 1 ( T $end
-$var wire 1 - _T $end
+$var wire 1 , _T $end
 $var wire 1 % rst $end
-$var wire 1 * nQ $end
+$var wire 1 ) nQ $end
 $var wire 1 " Q $end
 $scope module dff $end
 $var wire 1 $ Clk $end
-$var wire 1 - D $end
+$var wire 1 , D $end
 $var wire 1 % rst $end
 $var reg 1 " Q $end
-$var reg 1 * nQ $end
+$var reg 1 ) nQ $end
 $upscope $end
 $upscope $end
 $upscope $end
@@ -63,7 +62,6 @@ $dumpall
 $end
 #0
 $dumpvars
-x-
 x,
 x+
 x*
@@ -78,20 +76,19 @@ x"
 bx !
 $end
 #5
-0-
-1,
+0,
+1+
 0(
 1'
-0)
-1+
-0#
 1*
+0#
+1)
 b0 !
 0"
 1$
 0%
 #10
-0,
+0+
 0'
 0$
 1%
@@ -107,48 +104,47 @@ b0 !
 #35
 1$
 #40
-1,
+1+
 1'
 0$
 0&
 #45
-1-
+1,
 1(
 0'
-1,
+1+
 b10 !
 1#
 1$
 #50
 0$
 #55
-0,
+0+
 0(
 1'
-1-
-1)
+1,
 b11 !
 1"
-0+
+0*
 1$
 #60
 0$
 #65
-0-
+0,
 1(
 0'
-0,
+0+
 b1 !
 0#
-0*
+0)
 1$
 #70
-1-
+1,
 0(
 0$
 1&
 #75
-1+
+1*
 1$
 #80
 0$
@@ -159,50 +155,48 @@ b1 !
 #95
 1$
 #100
-0-
+0,
 1(
 0$
 0&
 #105
-1,
+1+
 0(
 1'
-0-
-0)
+0,
 b0 !
 0"
 1$
 #110
 0$
 #115
-1-
+1,
 1(
 0'
-1,
-1*
+1+
+1)
 b10 !
 1#
 1$
 #120
 0$
 #125
-0,
+0+
 0(
 1'
-1-
-1)
-0+
+1,
+0*
 b11 !
 1"
 1$
 #130
 0$
 #135
-0-
+0,
 1(
 0'
-0,
-0*
+0+
+0)
 b1 !
 0#
 1$
