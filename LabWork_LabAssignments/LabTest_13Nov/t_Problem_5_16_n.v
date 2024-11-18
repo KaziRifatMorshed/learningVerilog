@@ -17,7 +17,7 @@ module DFF (
             nQ <= ~Q;
         end
     end
-endmodule
+endmodule  // WORKS
 
 
 module TFF_with_DFF (
@@ -36,18 +36,74 @@ module TFF_with_DFF (
         Clk,
         rst
     );
-endmodule
+endmodule  // WORKS
+
+module JK_FF (
+    output reg Q,
+    output nQ,
+    input J,
+    K,
+    Clk,
+    reset
+);
+    always @(posedge Clk or posedge reset) begin
+        if (reset) Q <= 0;
+        else if (J & ~K) Q <= 1'b1;
+        else if (~J & K) Q <= 1'b0;
+        else if (J & K) Q <= ~Q;
+    end
+    // always @(posedge Clk) begin
+    //     case ({
+    //         J, K
+    //     })
+    //         2'b00: Q <= Q;
+    //         2'b01: Q <= 1'b0;
+    //         2'b10: Q <= 1'b1;
+    //         2'b11: Q <= ~Q;
+    //     endcase
+    //     nQ <= ~Q;
+    // end
+endmodule  // issue
 
 
-module Problem_5_16_n (
+////////////////////////////////////////////////////////////////////////////////
+
+module Problem_5_16_DFF (
     output A,
     B,
     input  x_in,
     clock,
     reset
 );
-    wire FA, nA, FB, nB;  // FIX HERE
-    // reg A, nA, B, nB;
+    wire D_A, D_B;
+    assign D_A = (~B & ~x_in) | (A & x_in);
+    assign D_B = (B & x_in) | (A & ~x_in);
+    DFF FF1 (
+        A,
+        nA,
+        D_A,
+        clock,
+        reset
+    );
+    DFF FF2 (
+        B,
+        nB,
+        D_B,
+        clock,
+        reset
+    );
+endmodule  // DONW
+
+
+module Problem_5_16_TFF (
+    output A,
+    B,
+    input  x_in,
+    clock,
+    reset
+);
+    wire FA, FB;  // FIX HERE
+    // reg A, nA, B, nB; // ---------- no need of wire nA, nB
     assign FA = ~x_in & !(A ^ B);
     assign FB = ~x_in & (A ^ B);
 
@@ -67,14 +123,49 @@ module Problem_5_16_n (
         clock,
         reset
     );
+endmodule  // DONE
 
-endmodule
+module Problem_5_16_JK (
+    output A,
+    B,
+    input  x,
+    clock,
+    reset
+);
+    wire ja, ka, jb, kb;
+
+    assign ja = ~B & ~x;
+    assign ka = B & ~x;
+    assign jb = A & ~x;
+    assign kb = ~A & ~x;
+
+    JK_FF FF_A (
+        A,
+        nA,
+        ja,
+        ka,
+        clock,
+        reset
+    );
+    JK_FF FF_B (
+        B,
+        nB,
+        jb,
+        kb,
+        clock,
+        reset
+    );
+endmodule  // ISSUE
+
+//////////////////////////////////////////////////////////////////////
 
 module t_Problem_5_16_n;
     reg t_x_in, t_clock, t_reset;
     wire [1:0] state;
 
-    Problem_5_16_n P (
+    // Problem_5_16_TFF P (
+    Problem_5_16_DFF P_DFF (
+        // Problem_5_16_JK P_JK (
         FA,
         FB,
         t_x_in,
@@ -95,13 +186,16 @@ module t_Problem_5_16_n;
     end
 
     initial begin
-        t_clock = 0;
-        repeat (28) #5 t_clock = ~t_clock;
+        #0 t_clock = 0;
+        // repeat (28) #5 t_clock = ~t_clock;
+        forever begin
+            #5 t_clock = ~t_clock;
+        end
     end
 
     initial begin
-        t_x_in = 0;
+        #0 t_x_in = 0;
         #10 t_x_in = 1;
-        repeat (3) #30 t_x_in = ~t_x_in;
+        repeat (3) #30 t_x_in = ~t_x_in;  // 30 th sec theke 3 bar repeat korbe
     end
 endmodule

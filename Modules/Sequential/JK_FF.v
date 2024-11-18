@@ -1,26 +1,20 @@
-`include "DFF.v"
-;
-
 module JK_FF (
     output reg Q,
     output nQ,
     input J,
     K,
-    Clk
+    Clk,
+    reset
 );
     assign nQ = ~Q;
-    always @(posedge Clk) begin
-        case ({
-            J, K
-        })
-            2'b00: Q <= Q;
-            2'b01: Q <= 1'b0;
-            2'b10: Q <= 1'b1;
-            2'b11: Q <= ~Q;
-        endcase
+
+    always @(posedge Clk or posedge reset) begin
+        if (reset) Q <= 0;
+        else if (J & ~K) Q <= 1'b1;
+        else if (~J & K) Q <= 1'b0;
+        else if (J & K) Q <= ~Q;
     end
 endmodule
-
 
 
 module t_JK_FF;

@@ -1,5 +1,5 @@
 $date
-	Mon Nov 18 23:14:24 2024
+	Tue Nov 19 00:38:40 2024
 $end
 $version
 	Icarus Verilog
@@ -7,53 +7,40 @@ $end
 $timescale
 	1s
 $end
-$scope module t_Problem_5_16_n $end
+$scope module t_Problem_5_16_new $end
 $var wire 2 ! state [1:0] $end
 $var wire 1 " FB $end
 $var wire 1 # FA $end
 $var reg 1 $ t_clock $end
 $var reg 1 % t_reset $end
 $var reg 1 & t_x_in $end
-$scope module P $end
-$var wire 1 # FA $end
-$var wire 1 " FB $end
+$scope module P_JK $end
 $var wire 1 $ clock $end
+$var wire 1 ' ja $end
+$var wire 1 ( jb $end
+$var wire 1 ) ka $end
+$var wire 1 * kb $end
 $var wire 1 % reset $end
-$var wire 1 & x_in $end
-$var wire 1 ' state $end
-$var wire 1 ( nB $end
-$var wire 1 ) nA $end
-$var wire 1 * B $end
-$var wire 1 + A $end
-$scope module T1 $end
+$var wire 1 & x $end
+$var wire 1 + nB $end
+$var wire 1 , nA $end
+$var wire 1 " B $end
+$var wire 1 # A $end
+$scope module FF_A $end
 $var wire 1 $ Clk $end
-$var wire 1 & T $end
-$var wire 1 , _T $end
-$var wire 1 % rst $end
-$var wire 1 ) nQ $end
-$var wire 1 + Q $end
-$scope module dff $end
-$var wire 1 $ Clk $end
-$var wire 1 , D $end
-$var wire 1 % rst $end
-$var reg 1 + Q $end
-$var reg 1 ) nQ $end
+$var wire 1 ' J $end
+$var wire 1 ) K $end
+$var wire 1 , nQ $end
+$var wire 1 % reset $end
+$var reg 1 # Q $end
 $upscope $end
-$upscope $end
-$scope module T2 $end
+$scope module FF_B $end
 $var wire 1 $ Clk $end
-$var wire 1 & T $end
-$var wire 1 - _T $end
-$var wire 1 % rst $end
-$var wire 1 ( nQ $end
-$var wire 1 * Q $end
-$scope module dff $end
-$var wire 1 $ Clk $end
-$var wire 1 - D $end
-$var wire 1 % rst $end
-$var reg 1 * Q $end
-$var reg 1 ( nQ $end
-$upscope $end
+$var wire 1 ( J $end
+$var wire 1 * K $end
+$var wire 1 + nQ $end
+$var wire 1 % reset $end
+$var reg 1 " Q $end
 $upscope $end
 $upscope $end
 $upscope $end
@@ -63,77 +50,49 @@ $dumpall
 $end
 #0
 $dumpvars
-x-
-x,
-x+
-x*
-x)
-x(
-x'
+1,
+1+
+1*
+0)
+0(
+1'
 0&
 1%
 0$
-x#
-x"
-bx !
+0#
+0"
+b0 !
 $end
 #5
-0"
+0*
+0,
+1(
 b10 !
 1#
-0,
-0-
-0'
-1)
-0+
-1(
-0*
 1$
 0%
 #10
+1,
 b0 !
 0#
-1,
-1-
+0'
+0(
 0$
 1%
 1&
 #15
-0-
-1'
-0,
-0(
-1*
-0)
-1+
 1$
 #20
 0$
 #25
-1,
-1-
-0'
-1)
-0+
-1(
-0*
 1$
 #30
 0$
 #35
-0-
-1'
-0,
-0(
-1*
-0)
-1+
 1$
 #40
-b10 !
-1#
-1,
-1-
+1'
+1*
 0$
 0&
 #45
@@ -147,48 +106,23 @@ b10 !
 #65
 1$
 #70
-b0 !
-0#
-0,
-0-
+0'
+0*
 0$
 1&
 #75
-1-
-0'
-1,
-1(
-0*
-1)
-0+
 1$
 #80
 0$
 #85
-0,
-0-
-1'
-0)
-1+
-0(
-1*
 1$
 #90
 0$
 #95
-1-
-0'
-1,
-1(
-0*
-1)
-0+
 1$
 #100
-b10 !
-1#
-0,
-0-
+1'
+1*
 0$
 0&
 #105

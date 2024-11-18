@@ -1,86 +1,72 @@
-module DFF (
+module JK_FF (
     output reg Q,
-    nQ,
-    input D,
+    output nQ,
+    input J,
+    K,
     Clk,
-    rst
+    reset
 );
-    always @(posedge Clk or negedge rst) begin
-        if (!rst) begin
-            Q  <= 1'b0;
-            nQ <= 1'b1;
-        end else begin
-            Q  <= D;
-            nQ <= ~D;
-        end
+    assign nQ = ~Q;
+
+    always @(posedge Clk or posedge reset) begin
+        if (reset) Q <= 0;
+        else if (J & ~K) Q <= 1'b1;
+        else if (~J & K) Q <= 1'b0;
+        else if (J & K) Q <= ~Q;
     end
 endmodule
 
-module TFF_with_DFF (
-    output Q,
-    nQ,
-    input  T,
-    Clk,
-    rst
-);
-    wire _T;
-    assign _T = Q ^ T;
-    DFF dff (
-        Q,
-        nQ,
-        _T,
-        Clk,
-        rst
-    );
-endmodule
-
-module Problem_5_16_n (
-    output FA,
-    FB,
-    input  x_in,
+module Problem_5_16_JK (
+    output A,
+    B,
+    input  x,
     clock,
     reset
 );
-    wire A, nA, B, nB;
+    wire ja, ka, jb, kb, nA, nB;
 
-    assign FA = ~x_in & !(A ^ B);
-    assign FB = ~x_in & (A ^ B);
+    assign ja = ~B & ~x;
+    assign ka = B & ~x;
+    assign jb = A & ~x;
+    assign kb = ~A & ~x;
 
-    TFF_with_DFF T1 (
-        A,
-        nA,
-        x_in,
-        clock,
-        reset
-    );
-    TFF_with_DFF T2 (
-        B,
-        nB,
-        x_in,
-        clock,
-        reset
+    JK_FF FF_A (
+        .Q(A),
+        .nQ(nA),
+        .J(ja),
+        .K(ka),
+        .Clk(clock),
+        .reset(reset)
     );
 
-    assign state = {A, B};
+    JK_FF FF_B (
+        .Q(B),
+        .nQ(nB),
+        .J(jb),
+        .K(kb),
+        .Clk(clock),
+        .reset(reset)
+    );
 endmodule
 
-module t_Problem_5_16_n;
+module t_Problem_5_16_new;
     reg t_x_in, t_clock, t_reset;
-    wire FA, FB;  // ---------------- absent in sir's code
+    wire FA, FB;
     wire [1:0] state;
 
-    Problem_5_16_n P (
-        FA,
-        FB,
-        t_x_in,
-        t_clock,
-        t_reset
+    Problem_5_16_JK P_JK (
+        .A(FA),
+        .B(FB),
+        .x(t_x_in),
+        .clock(t_clock),
+        .reset(t_reset)
     );
+
     assign state = {FA, FB};
 
     initial begin
         $dumpfile("t_Problem_5_16_new.vcd");
-        $dumpvars(0, t_Problem_5_16_n);
+        $dumpvars(0, t_Problem_5_16_new);
     end
 
     initial #150 $finish;
