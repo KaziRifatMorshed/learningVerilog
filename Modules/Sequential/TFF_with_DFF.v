@@ -1,24 +1,33 @@
 module DFF (
-    output reg Q, nQ,
-    input D, Clk, rst
+    output reg Q,  // ------------ reg missed
+    nQ,
+    input D,
+    Clk,
+    rst
 );
     always @(posedge Clk, negedge rst) begin
         if (!rst) begin
-            Q <= 1'b0;
-        end else
-        Q <= D;
-        nQ <= ~Q;
+            Q  <= 1'b0;
+            nQ <= 1'b1;  // ----------------- missed
+        end else begin
+            Q  <= D;
+            nQ <= ~Q;
+        end
     end
-endmodule
+endmodule  // WORKS
+
 
 module TFF_with_DFF (
-    output Q, nQ,
-    input T, Clk, rst
+    output Q,
+    nQ,
+    input  T,
+    Clk,
+    rst
 );
     wire _T;
     assign _T = Q ^ T;
-    DFF dff(Q, nQ, T, Clk, rst);
-endmodule
+    DFF dff (Q, nQ, _T, Clk, rst);
+endmodule  // WORKS
 
 module t_TFF_with_DFF;
     wire Q, nQ;

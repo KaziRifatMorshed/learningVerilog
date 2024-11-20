@@ -1,3 +1,23 @@
+module jk_flip_flop (
+    output Q,       
+    output Qbar,    
+    input J,        
+    input K,        
+    input clk       
+);
+    wire S, R, Q_int, Qbar_int;  
+
+    and u1 (S, J, Qbar_int, clk);
+    and u2 (R, K, Q_int, clk);   
+    
+    nor u3 (Q_int, R, Qbar_int); 
+    nor u4 (Qbar_int, S, Q_int); 
+
+    assign Q = Q_int;
+    assign Qbar = Qbar_int;
+endmodule
+
+
 module JK_FF (
     output reg Q,
     output nQ,

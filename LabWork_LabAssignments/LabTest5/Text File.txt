@@ -1,0 +1,4 @@
+A PN flip-flop has four operations: clear to 0, no change, complement, and set to 1,
+when inputs P and N are 00, 01, 10, and 11. PN has a reset input that triggers at positive edge
+
+Write HDL code for a sequential circuit with two PN flip-flops A and B. The circuit goes through the state transitions from 00 to 11, to 01, to 10, back to 00, and repeats. Sample Test Bench and its time diagram is attached.
