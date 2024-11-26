@@ -10,6 +10,12 @@ I am using this command in [CodeRunner](https://marketplace.visualstudio.com/ite
         ".v": "cd $dir && mkdir -p output && iverilog $fileName -o ./output/$fileNameWithoutExt.vvp && cd output && vvp $fileNameWithoutExt.vvp && gtkwave $fileNameWithoutExt.vcd",
 ```
 
+For Windows:
+
+```json
+
+```
+
 # My VS Code snippet
 
 `~/.config/Code - OSS/User/profiles/-5d9ac861/snippets/verilog.json`
