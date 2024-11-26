@@ -7,13 +7,13 @@ this repo contains the Verilog codes that I learned from the CSE 2205: DIGITAL L
 I am using this command in [CodeRunner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner) to compile and run test bench of my verilog code in GTKwave. Please edit the file `~/.config/Code - OSS/User/profiles/-5d9ac861/settings.json` {self service} (NOTE: this is my linux system's one and I am actually using OSS Code)
 
 ```json
-        ".v": "cd $dir && mkdir -p output && iverilog $fileName -o ./output/$fileNameWithoutExt.vvp && cd output && vvp $fileNameWithoutExt.vvp && gtkwave $fileNameWithoutExt.vcd",
+	".v": "cd $dir && mkdir -p output && iverilog $fileName -o ./output/$fileNameWithoutExt.vvp && cd output && vvp $fileNameWithoutExt.vvp && gtkwave $fileNameWithoutExt.vcd",
 ```
 
 For Windows:
 
 ```json
-
+	".v": "cls && echo \"NOTE: please make sure that you have put the name of your module inside dumpfile to launch GTKwave directly with this extension. for example, if the module name is xyz you put $dumpfile(xyz.vcd);\" && cd $dir && iverilog -o $fileNameWithoutExt.vvp $fileName && vvp $fileNameWithoutExt.vvp && gtkwave $fileNameWithoutExt.vcd",
 ```
 
 # My VS Code snippet
